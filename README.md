@@ -1,2 +1,2 @@
-# cristianreyperez.githug.io
+# cristianreyperez.github.io
 Portfolio 
