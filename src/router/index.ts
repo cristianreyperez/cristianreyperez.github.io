@@ -8,6 +8,26 @@ const routes = [
     component: Home
   },
   // add more routes here
+  {
+    path: '/about-me',
+    name: 'AboutMe',
+    component: Home
+  },
+  {
+    path: '/skills',
+    name: 'Skills',
+    component: Home
+  },
+  {
+    path: '/portfolio',
+    name: 'Portfolio',
+    component: Home
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Home
+  }
 ]
 
 export const router = createRouter({

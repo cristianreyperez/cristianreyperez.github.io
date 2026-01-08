@@ -3,11 +3,10 @@ import Header from './Header.vue'
 </script>
 
 
-
-
 <template lang="pug">
-    div.flex.flex-col
-        Header.w-full
+    Header.w-full
+    div.flex.flex-col.min-h-screen
         main.flex-1.p-6
             slot
 </template>
+

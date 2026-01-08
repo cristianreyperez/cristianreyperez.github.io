@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import DefaultLayout from './layout/DefaultLayout.vue'
+import './assets/main.css';
+
 </script>
 
 
@@ -8,3 +10,4 @@ import DefaultLayout from './layout/DefaultLayout.vue'
   DefaultLayout
     router-view
 </template>
+

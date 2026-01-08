@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+
+
+
+
+
+#app {
+  @apply max-w-[1440px] mx-auto;
+}
+
+
