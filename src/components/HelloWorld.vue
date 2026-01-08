@@ -35,9 +35,9 @@ const count = ref(0)
 </template> -->
 
 <template lang="pug">
-div.hello.test
-  h1.test2 {{ t('message.hello') }}
-  h2 test
+  div.hello.test
+    h1.test2 {{ t('message.hello') }}
+    h2 test
 </template>
 
 <script setup lang="ts">

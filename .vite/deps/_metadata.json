@@ -1,0 +1,103 @@
+{
+  "hash": "72b7dcb8",
+  "configHash": "e89750c0",
+  "lockfileHash": "5eb28270",
+  "browserHash": "1b64638b",
+  "optimized": {
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "a3b25f2e",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "8901f1b1",
+      "needsInterop": false
+    },
+    "primevue/config": {
+      "src": "../../node_modules/primevue/config/config.esm.js",
+      "file": "primevue_config.js",
+      "fileHash": "e6f3d303",
+      "needsInterop": false
+    },
+    "primevue/passthrough/tailwind": {
+      "src": "../../node_modules/primevue/passthrough/tailwind/index.esm.js",
+      "file": "primevue_passthrough_tailwind.js",
+      "fileHash": "0743453c",
+      "needsInterop": false
+    },
+    "floating-vue": {
+      "src": "../../node_modules/floating-vue/dist/floating-vue.mjs",
+      "file": "floating-vue.js",
+      "fileHash": "65860b74",
+      "needsInterop": false
+    },
+    "vue-gtag": {
+      "src": "../../node_modules/vue-gtag/dist/vue-gtag.esm.js",
+      "file": "vue-gtag.js",
+      "fileHash": "e8abe6c6",
+      "needsInterop": false
+    },
+    "vue-email": {
+      "src": "../../node_modules/vue-email/dist/index.mjs",
+      "file": "vue-email.js",
+      "fileHash": "4c2bd457",
+      "needsInterop": false
+    },
+    "@apollo/client/core": {
+      "src": "../../node_modules/@apollo/client/core/index.js",
+      "file": "@apollo_client_core.js",
+      "fileHash": "8a884359",
+      "needsInterop": false
+    },
+    "@apollo/client/link/error": {
+      "src": "../../node_modules/@apollo/client/link/error/index.js",
+      "file": "@apollo_client_link_error.js",
+      "fileHash": "5f10cb1f",
+      "needsInterop": false
+    },
+    "@vue/apollo-composable": {
+      "src": "../../node_modules/@vue/apollo-composable/dist/index.mjs",
+      "file": "@vue_apollo-composable.js",
+      "fileHash": "46dd0825",
+      "needsInterop": false
+    },
+    "vue-i18n": {
+      "src": "../../node_modules/vue-i18n/dist/vue-i18n.mjs",
+      "file": "vue-i18n.js",
+      "fileHash": "abf45058",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "6a85f123",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "browser-ZXEKWQBN": {
+      "file": "browser-ZXEKWQBN.js"
+    },
+    "index.mjs-Z4MBP7WS": {
+      "file": "index__mjs-Z4MBP7WS.js"
+    },
+    "vue-i18n-6MFK2AKX": {
+      "file": "vue-i18n-6MFK2AKX.js"
+    },
+    "chunk-FNYPNNX4": {
+      "file": "chunk-FNYPNNX4.js"
+    },
+    "chunk-KO5YMVEA": {
+      "file": "chunk-KO5YMVEA.js"
+    },
+    "chunk-BZUPQDDC": {
+      "file": "chunk-BZUPQDDC.js"
+    },
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
+    }
+  }
+}
