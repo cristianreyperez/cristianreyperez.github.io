@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/cristianreyperez.github.io/',
+  base: '/',
   build: {
     outDir: 'docs'   // or 'dist' if you prefer
   }
