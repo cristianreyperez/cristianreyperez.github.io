@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [vue()],
   base: '/cristianreyperez.github.io/', // or '/' if deploying to root
   build: {
-    outDir: 'root'
+    outDir: 'docs'
   }
 })
