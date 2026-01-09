@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [vue()],
   base: '/cristianreyperez.github.io/',
   build: {
-    outDir: 'docs'
+    outDir: 'docs'   // or 'dist' if you prefer
   }
 })
