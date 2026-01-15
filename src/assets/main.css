@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
+@theme {
+  /* Core colors */
+  --color-dark: #1E1E1E;
+  --color-text-light: #00000080;
 
+  /* State colors */
+  --color-green-state: #1EA97C;
+  --color-red-state: #EF4444;
+  --color-blue-state: #3B82F6;
 
+  /* Grays */
+  --color-gray-trans: #E7E7E733;
+  --color-border-gray: #E7E7E7;
+  --color-btn-gray-bg: #E4E7EB;
+  --color-comment-bg: #F7F8FA;
+  --color-assets-gray: #88878B;
+  --color-dark-gray: #4A4459;
 
+  /* Brand / custom */
+  --color-amber: #F59E0B;
+  --color-custom-green: #0FA858;
+  --color-custom-pink: #FF81E3;
+  --color-royal-purple: #6750AA;
 
+  /* Layout sections */
+  --color-first-section: #1F242D;
+}
 
+/* Optional app-wide helpers */
+/*
 #app {
   @apply max-w-[1440px] mx-auto;
 }
-
-
+*/
