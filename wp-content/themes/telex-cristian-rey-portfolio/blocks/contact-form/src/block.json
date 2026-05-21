@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "crp/contact-form",
+	"title": "Contact Form",
+	"category": "widgets",
+	"description": "Front-end contact form collecting name, email, and message from prospective clients or collaborators.",
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"typography": {
+			"fontSize": true
+		}
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": "Have a project in mind or want to collaborate? Send me a message and I will get back to you promptly."
+		},
+		"successMessage": {
+			"type": "string",
+			"default": "Message sent successfully. I will be in touch soon."
+		},
+		"namePlaceholder": {
+			"type": "string",
+			"default": "Your Name"
+		},
+		"emailPlaceholder": {
+			"type": "string",
+			"default": "your@email.com"
+		},
+		"messagePlaceholder": {
+			"type": "string",
+			"default": "Tell me about your project..."
+		},
+		"submitLabel": {
+			"type": "string",
+			"default": "Send Message"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}

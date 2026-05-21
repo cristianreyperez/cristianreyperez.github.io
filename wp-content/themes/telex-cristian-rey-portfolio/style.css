@@ -1,0 +1,905 @@
+/*
+Theme Name: Cristian Rey Perez
+Theme URI: https://cristianreyperez.dev
+Author: Cristian Rey Perez
+Description: A dark, technically confident portfolio theme for a web developer.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cristian-rey-perez
+Requires at least: 6.4
+Tested up to: 6.7
+Requires PHP: 8.0
+*/
+
+/* ==========================================================================
+   Reset & base
+   ========================================================================== */
+
+:root,
+body,
+.wp-site-blocks {
+    overflow: visible;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Sticky header
+   ========================================================================== */
+
+.wp-site-blocks > header.wp-block-template-part {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.wp-site-blocks > header.wp-block-template-part::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, -webkit-backdrop-filter 0.4s ease;
+}
+
+body.is-scrolled .wp-site-blocks > header.wp-block-template-part::before {
+    background: var(--wp--preset--color--surface);
+    box-shadow: 0 1px 0 var(--wp--preset--color--grid-line);
+}
+
+/* Header inner group — border cue matching the reference */
+.site-header {
+    border-bottom: 1px solid var(--wp--preset--color--grid-line);
+}
+
+body.is-scrolled .site-header {
+    border-bottom-color: transparent;
+}
+
+/* ==========================================================================
+   Typography polish
+   ========================================================================== */
+
+p {
+    max-width: 70ch;
+}
+
+strong,
+b {
+    font-weight: 700;
+    color: var(--wp--preset--color--text);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+::selection {
+    background: var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--dark);
+}
+
+/* Muted / secondary text helper */
+.has-muted-color {
+    color: var(--wp--preset--color--muted);
+}
+
+/* ==========================================================================
+   Link treatments
+   ========================================================================== */
+
+a {
+    transition: color 0.3s ease;
+}
+
+.wp-block-navigation a {
+    transition: color 0.3s ease;
+}
+
+.wp-block-navigation a:hover,
+.wp-block-navigation a:focus {
+    color: var(--wp--preset--color--accent);
+}
+
+/* ==========================================================================
+   Button variants
+   ========================================================================== */
+
+.wp-block-button .wp-block-button__link {
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.wp-block-button .wp-block-button__link:hover,
+.wp-block-button .wp-block-button__link:focus {
+    box-shadow: 0 0 16px rgba(198, 241, 53, 0.25);
+}
+
+/* Outline button style */
+.wp-block-button.is-style-outline .wp-block-button__link {
+    background: transparent;
+    border: 2px solid var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--accent);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover,
+.wp-block-button.is-style-outline .wp-block-button__link:focus {
+    background: var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--dark);
+}
+
+/* ==========================================================================
+   Image treatments
+   ========================================================================== */
+
+.wp-block-image img {
+    border-radius: 0;
+    filter: grayscale(20%) contrast(105%);
+    transition: filter 0.4s ease;
+}
+
+.wp-block-image:hover img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.wp-block-image figcaption {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    color: var(--wp--preset--color--muted);
+    letter-spacing: 0.05em;
+    margin-top: var(--wp--preset--spacing--20);
+}
+
+/* ==========================================================================
+   Cover block
+   ========================================================================== */
+
+.wp-block-cover {
+    border-radius: 0;
+}
+
+.wp-block-cover .wp-block-cover__inner-container {
+    max-width: var(--wp--style--global--wide-size, 1280px);
+}
+
+/* ==========================================================================
+   Separator refinements
+   ========================================================================== */
+
+.wp-block-separator {
+    opacity: 1;
+}
+
+.wp-block-separator:not(.is-style-dots) {
+    border-top: 1px solid var(--wp--preset--color--grid-line);
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Quote refinements
+   ========================================================================== */
+
+.wp-block-quote cite,
+.wp-block-quote footer {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    color: var(--wp--preset--color--muted);
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Code & preformatted
+   ========================================================================== */
+
+code,
+kbd {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--medium);
+    background: var(--wp--preset--color--surface);
+    color: var(--wp--preset--color--accent);
+    padding: 0.15em 0.4em;
+    border: 1px solid var(--wp--preset--color--grid-line);
+}
+
+.wp-block-code code {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* ==========================================================================
+   Post meta blocks
+   ========================================================================== */
+
+.wp-block-post-date a,
+.wp-block-post-terms a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.wp-block-post-terms a:hover,
+.wp-block-post-terms a:focus {
+    color: var(--wp--preset--color--accent-hover);
+}
+
+/* ==========================================================================
+   Post template card styling
+   ========================================================================== */
+
+.wp-block-post-template .wp-block-post {
+    transition: transform 0.25s ease;
+}
+
+.wp-block-post-template .wp-block-post:hover {
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Grid-line accent rule (hero & section dividers via className)
+   ========================================================================== */
+
+.accent-rule {
+    width: 1px;
+    height: 80px;
+    background-color: var(--wp--preset--color--muted);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .accent-rule {
+        height: 40px;
+    }
+}
+
+/* Cursor block (chartreuse glowing square) */
+.cursor-block {
+    display: inline-block;
+    width: clamp(10px, 1.5vw, 16px);
+    height: clamp(10px, 1.5vw, 16px);
+    background-color: var(--wp--preset--color--accent);
+    box-shadow: 0 0 12px rgba(198, 241, 53, 0.4);
+    vertical-align: middle;
+}
+
+/* Grid background layer */
+.grid-layer {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom, var(--wp--preset--color--grid-line) 1px, transparent 1px);
+    background-size: 100% 48px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Vignette overlay */
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 20%, var(--wp--preset--color--background) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Hero cover image treatment */
+.hero-backdrop {
+    opacity: 0.12;
+    filter: grayscale(100%) contrast(150%);
+}
+
+/* Hero portrait image */
+.hero-portrait img {
+    border-radius: 0;
+    filter: grayscale(30%) contrast(110%);
+    transition: filter 0.4s ease;
+    border: 1px solid var(--wp--preset--color--grid-line);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    width: 100%;
+}
+
+.hero-portrait:hover img {
+    filter: grayscale(0%) contrast(100%);
+    border-color: var(--wp--preset--color--accent);
+}
+
+@media (max-width: 781px) {
+    .hero-section .wp-block-columns {
+        flex-direction: column-reverse;
+    }
+
+    .hero-portrait {
+        max-width: 260px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ==========================================================================
+   Scroll cue
+   ========================================================================== */
+
+.scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--wp--preset--spacing--20);
+}
+
+.scroll-cue-text {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--wp--preset--color--muted);
+}
+
+/* ==========================================================================
+   Mobile hamburger overlay
+   ========================================================================== */
+
+.wp-block-navigation__responsive-container.is-menu-open {
+    padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+    background: var(--wp--preset--color--background);
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+    gap: var(--wp--preset--spacing--40);
+    align-items: flex-start;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+    font-size: var(--wp--preset--font-size--large);
+    color: var(--wp--preset--color--text);
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content:hover {
+    color: var(--wp--preset--color--accent);
+}
+
+/* Close button in overlay */
+.wp-block-navigation__responsive-container-close {
+    color: var(--wp--preset--color--text);
+}
+
+/* Open button (hamburger) */
+.wp-block-navigation__responsive-container-open {
+    color: var(--wp--preset--color--text);
+}
+
+/* ==========================================================================
+   Utility: full-bleed surface sections
+   ========================================================================== */
+
+.has-surface-background-color {
+    background-color: var(--wp--preset--color--surface);
+}
+
+/* ==========================================================================
+   Loop layout utilities
+   ========================================================================== */
+
+/* Horizontal scrollable rail */
+.wp-block-query.is-style-loop-rail .wp-block-post-template {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    padding-bottom: var(--wp--preset--spacing--20);
+}
+.wp-block-query.is-style-loop-rail .wp-block-post-template > * {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+}
+
+/* Compact list with hairline row dividers */
+.wp-block-query.is-style-loop-list .wp-block-post-template > * {
+    border-bottom: 1px solid var(--wp--preset--color--grid-line);
+    padding-block: var(--wp--preset--spacing--30);
+}
+.wp-block-query.is-style-loop-list .wp-block-post-template > *:last-child {
+    border-bottom: 0;
+}
+
+/* Zigzag — flip the columns inside every even entry */
+.wp-block-query.is-style-loop-zigzag .wp-block-post-template > *:nth-child(even) .wp-block-columns {
+    flex-direction: row-reverse;
+}
+
+/* Timeline — vertical line with node markers per entry */
+.wp-block-query.is-style-loop-timeline .wp-block-post-template {
+    position: relative;
+    padding-inline-start: 2.5rem;
+}
+.wp-block-query.is-style-loop-timeline .wp-block-post-template::before {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0.5rem;
+    width: 2px;
+    background: var(--wp--preset--color--grid-line);
+    opacity: 0.5;
+}
+.wp-block-query.is-style-loop-timeline .wp-block-post-template > * {
+    position: relative;
+}
+.wp-block-query.is-style-loop-timeline .wp-block-post-template > *::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: -2.25rem;
+    inset-block-start: 0.6rem;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--wp--preset--color--accent);
+    border-radius: 50%;
+    background: var(--wp--preset--color--background);
+}
+
+/* Magazine — first child spans 2 columns of the grid */
+.wp-block-query.is-style-loop-magazine .wp-block-post-template > *:first-child {
+    grid-column: span 2;
+}
+@media (max-width: 600px) {
+    .wp-block-query.is-style-loop-magazine .wp-block-post-template > *:first-child {
+        grid-column: auto;
+    }
+}
+
+/* ==========================================================================
+   Scroll catalog CSS — mandatory
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+    /* Section reveal on enter view */
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+
+    /* Scroll progress bar (CSS scroll-driven animation; older browsers no-op) */
+    @supports (animation-timeline: scroll()) {
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--wp--preset--color--accent);
+            transform-origin: left center;
+            transform: scaleX(0);
+            z-index: 1000;
+            animation: scroll-progress-grow linear;
+            animation-timeline: scroll(root);
+            pointer-events: none;
+        }
+        @keyframes scroll-progress-grow {
+            from { transform: scaleX(0); }
+            to   { transform: scaleX(1); }
+        }
+    }
+
+    /* Sticky narrative pin (NYT-style scrolling visuals beside pinned text) */
+    .narrative-pin > .wp-block-column:first-child {
+        position: sticky;
+        top: var(--wp--custom--scroll-padding-top, 96px);
+        align-self: flex-start;
+    }
+
+    /* Hide-on-scroll-down header variant */
+    .wp-site-blocks > header.wp-block-template-part {
+        transition: transform 0.3s ease;
+    }
+    body.header-hidden .wp-site-blocks > header.wp-block-template-part {
+        transform: translateY(-100%);
+    }
+
+    /* Active-anchor underline (landing-page nav) */
+    .wp-block-navigation a {
+        position: relative;
+    }
+    .wp-block-navigation a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.3s ease;
+    }
+    .wp-block-navigation a.is-active::after {
+        transform: scaleX(1);
+    }
+}
+
+/* ==========================================================================
+   Skills carousel (shortcode fallback)
+   ========================================================================== */
+
+.crp-skills-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 0;
+}
+
+.crp-skills-carousel::before,
+.crp-skills-carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(40px, 8vw, 120px);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.crp-skills-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, var(--wp--preset--color--background, #141414), transparent);
+}
+
+.crp-skills-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, var(--wp--preset--color--background, #141414), transparent);
+}
+
+.crp-skills-carousel__track {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    width: max-content;
+    animation: crp-marquee-scroll 30s linear infinite;
+    will-change: transform;
+}
+
+@keyframes crp-marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.crp-skills-carousel__item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--wp--preset--color--grid-line, #2A2A2A);
+    background: var(--wp--preset--color--surface, #1E1E1E);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crp-skills-carousel__item:hover {
+    border-color: var(--wp--preset--color--accent, #C6F135);
+    box-shadow: 0 0 20px rgba(198, 241, 53, 0.1);
+}
+
+.crp-skills-carousel__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--wp--preset--color--accent, #C6F135);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.crp-skills-carousel__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.crp-skills-carousel__label {
+    font-family: var(--wp--preset--font-family--mono, monospace);
+    font-size: var(--wp--preset--font-size--small, 0.75rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--wp--preset--color--text, #EDE8DC);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .crp-skills-carousel__track {
+        animation-play-state: paused;
+    }
+}
+
+/* ==========================================================================
+   Skill / tech stack badge styling
+   ========================================================================== */
+
+.tech-badge {
+    display: inline-block;
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--wp--preset--color--accent);
+    background: var(--wp--preset--color--surface);
+    border: 1px solid var(--wp--preset--color--grid-line);
+    padding: 0.35em 0.75em;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   Project card surface
+   ========================================================================== */
+
+.project-card {
+    background: var(--wp--preset--color--surface);
+    border: 1px solid var(--wp--preset--color--grid-line);
+    padding: var(--wp--preset--spacing--40);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--wp--preset--color--accent);
+    box-shadow: 0 0 24px rgba(198, 241, 53, 0.08);
+}
+
+/* ==========================================================================
+   Footer credit line styling
+   ========================================================================== */
+
+.wp-block-template-part.site-footer .footer-credit {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    letter-spacing: 0.05em;
+    color: var(--wp--preset--color--muted);
+}
+
+.wp-block-template-part.site-footer .footer-credit a {
+    color: var(--wp--preset--color--muted);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    transition: color 0.3s ease;
+}
+
+.wp-block-template-part.site-footer .footer-credit a:hover {
+    color: var(--wp--preset--color--accent);
+}
+
+/* ==========================================================================
+   Table styling (if used)
+   ========================================================================== */
+
+.wp-block-table table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.wp-block-table td,
+.wp-block-table th {
+    border: 1px solid var(--wp--preset--color--grid-line);
+    padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+    font-size: var(--wp--preset--font-size--medium);
+}
+
+.wp-block-table th {
+    font-family: var(--wp--preset--font-family--mono);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--wp--preset--font-size--small);
+    background: var(--wp--preset--color--surface);
+    color: var(--wp--preset--color--text);
+}
+
+/* ==========================================================================
+   Details / accordion
+   ========================================================================== */
+
+.wp-block-details {
+    border-bottom: 1px solid var(--wp--preset--color--grid-line);
+    padding-block: var(--wp--preset--spacing--30);
+}
+
+.wp-block-details summary {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--medium);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    color: var(--wp--preset--color--text);
+    transition: color 0.3s ease;
+}
+
+.wp-block-details summary:hover {
+    color: var(--wp--preset--color--accent);
+}
+
+.wp-block-details[open] summary {
+    color: var(--wp--preset--color--accent);
+    margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* ==========================================================================
+   Scrollbar styling (dark theme)
+   ========================================================================== */
+
+* {
+    scrollbar-color: var(--wp--preset--color--grid-line) var(--wp--preset--color--background);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--wp--preset--color--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--wp--preset--color--grid-line);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wp--preset--color--muted);
+}
+
+/* ==========================================================================
+   Focus styles — accessibility
+   ========================================================================== */
+
+:focus-visible {
+    outline: 2px solid var(--wp--preset--color--accent);
+    outline-offset: 2px;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================================================
+   Contact form fallback styles (shortcode-rendered form)
+   ========================================================================== */
+
+.crp-contact-form-fallback {
+    max-width: 640px;
+}
+
+.crp-contact-form-fallback .crp-contact-form__form {
+    display: block;
+}
+
+.crp-contact-form-fallback .crp-contact-form__description {
+    font-family: var(--wp--preset--font-family--primary);
+    font-size: var(--wp--preset--font-size--normal);
+    color: var(--wp--preset--color--muted);
+    line-height: 1.65;
+    margin: 0 0 var(--wp--preset--spacing--40) 0;
+    max-width: 70ch;
+}
+
+.crp-contact-form-fallback .crp-contact-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--30);
+}
+
+.crp-contact-form-fallback .crp-contact-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.crp-contact-form-fallback .crp-contact-form__label {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--wp--preset--color--text);
+}
+
+.crp-contact-form-fallback .crp-contact-form__input,
+.crp-contact-form-fallback .crp-contact-form__textarea {
+    font-family: var(--wp--preset--font-family--primary);
+    font-size: var(--wp--preset--font-size--normal);
+    color: var(--wp--preset--color--text);
+    background: var(--wp--preset--color--surface);
+    border: 1px solid var(--wp--preset--color--grid-line);
+    border-radius: 0;
+    padding: var(--wp--preset--spacing--30);
+    line-height: 1.65;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.crp-contact-form-fallback .crp-contact-form__input::placeholder,
+.crp-contact-form-fallback .crp-contact-form__textarea::placeholder {
+    color: var(--wp--preset--color--muted);
+    opacity: 1;
+}
+
+.crp-contact-form-fallback .crp-contact-form__input:focus,
+.crp-contact-form-fallback .crp-contact-form__textarea:focus {
+    outline: none;
+    border-color: var(--wp--preset--color--accent);
+    box-shadow: 0 0 0 1px var(--wp--preset--color--accent);
+}
+
+.crp-contact-form-fallback .crp-contact-form__textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.crp-contact-form-fallback .crp-contact-form__submit-row {
+    margin-top: var(--wp--preset--spacing--40);
+}
+
+.crp-contact-form-fallback .crp-contact-form__button {
+    display: inline-block;
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--wp--preset--color--dark);
+    background: var(--wp--preset--color--accent);
+    border: none;
+    border-radius: 0;
+    padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--50);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    line-height: 1.4;
+}
+
+.crp-contact-form-fallback .crp-contact-form__button:hover,
+.crp-contact-form-fallback .crp-contact-form__button:focus {
+    background: var(--wp--preset--color--accent-hover);
+    color: var(--wp--preset--color--background);
+    box-shadow: 0 0 16px rgba(198, 241, 53, 0.25);
+}
+
+.crp-contact-form-fallback .crp-contact-form__button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.crp-contact-form-fallback .crp-contact-form__status {
+    font-family: var(--wp--preset--font-family--mono);
+    font-size: var(--wp--preset--font-size--small);
+    letter-spacing: 0.05em;
+    margin-top: var(--wp--preset--spacing--30);
+    min-height: 1.4em;
+}
+
+.crp-contact-form-fallback .crp-contact-form__status--sending {
+    color: var(--wp--preset--color--muted);
+}
+
+.crp-contact-form-fallback .crp-contact-form__status--success {
+    color: var(--wp--preset--color--accent);
+}
+
+.crp-contact-form-fallback .crp-contact-form__status--error {
+    color: #e85d5d;
+}
